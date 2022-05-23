@@ -3,14 +3,14 @@ import styled from "styled-components";
 const Button = styled.button`
   border-radius: 5px;
   border: none;
-  background-color: #316b83;
+  background-color: ${(props) => (props.primary ? " #316b83" : "#F32424")};
   padding: 0.7rem 0.9rem;
   color: #fefbf3;
 
   &:hover {
     background-color: transparent;
-    border: 1px solid #316b83;
-    color: #316b83;
+    border: 1px solid ${(props) => (props.primary ? "#316b83" : "#F32424")};
+    color: ${(props) => (props.primary ? "#316b83" : "#F32424")};
     cursor: pointer;
   }
 

@@ -12,13 +12,12 @@ function Header() {
         </NavLink>
       </div>
       <nav>
-        <NavLink to={"/box"} className={"box"}>
+        <NavLink to={"/cart"} className={"box"}>
           <span>{box.length}</span>
           <ion-icon name="cart" size={"large"}></ion-icon>
         </NavLink>
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/"}>About</NavLink>
-        <NavLink to={"/"}>Contact</NavLink>
+        <NavLink to={"/about"}>About</NavLink>
       </nav>
     </header>
   );
