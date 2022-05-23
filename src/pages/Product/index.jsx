@@ -1,30 +1,33 @@
-import React, { useCallback, useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { fetchProductDetail } from "../../api";
+import { motion } from "framer-motion";
 
 function Product() {
   const { id } = useParams();
-  const [productData, setProductData] = useState({});
+  const { data, isLoading, error } = useQuery(["products", id], () =>
+    fetchProductDetail(id)
+  );
 
-  const fetchProductData = useCallback(async () => {
-    const response = await axios(
-      `${process.env.REACT_APP_BASE_ENDPOINT}/${id}`
-    );
-    setProductData(response.data);
-  }, [id]);
-
-  useEffect(() => {
-    fetchProductData();
-  }, [fetchProductData]);
+  if (isLoading) {
+    return <div className="loader"></div>;
+  }
+  if (error) {
+    return error.message;
+  }
 
   return (
-    <div>
+    <motion.div
+      animate={{ y: 20 }}
+      transition={{ ease: "easeOut", duration: 2 }}
+    >
       <article>
-        <h1>{productData.title}</h1>
-        <img src={productData.image} alt="" />
-        <p> {productData.description} </p>
+        <h1>{data.title}</h1>
+        <img src={data.image} alt="" />
+        <p> {data.description} </p>
       </article>
-    </div>
+    </motion.div>
   );
 }
 export default Product;
