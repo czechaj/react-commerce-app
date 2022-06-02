@@ -8,7 +8,7 @@ function Home() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useInfiniteQuery("products", fetchProducts, {
       getNextPageParam: (lastGroup, allGroups) => {
-        const morePagesExist = lastGroup && lastGroup.length === 15;
+        const morePagesExist = lastGroup && lastGroup.length === 18;
         if (!morePagesExist) {
           return;
         }

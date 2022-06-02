@@ -18,6 +18,11 @@ const Button = styled.button`
     transform: scale(0.98);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.12);
   }
+
+  @media only screen and (max-width: 600px) {
+    padding: 0.3rem 0.5rem;
+    font-size: 10px;
+  }
 `;
 
 export default Button;

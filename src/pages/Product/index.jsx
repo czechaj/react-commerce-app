@@ -26,7 +26,7 @@ function Product() {
       animate={{ y: 20 }}
       transition={{ ease: "easeOut", duration: 2 }}
     >
-      <article>
+      <article className="product">
         <h1>{data.title}</h1>
         <img src={data.image} alt="" />
         <p> {data.description} </p>
